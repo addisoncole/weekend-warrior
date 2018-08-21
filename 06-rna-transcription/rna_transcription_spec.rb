@@ -5,50 +5,42 @@ require_relative 'rna_transcription'
 
 describe "RNA Complement Test" do
   it "Check Rna complement of cytosine is guanine" do
-    expect('G').must_equal Complement.of_dna('C')
+    expect rna_transcription('G').must_equal ('C')
   end
   it "Check rna complement of guanine is cytosine" do
-    expect('C').must_equal Complement.of_dna('G')
+    expect rna_transcription('C').must_equal ('G')
   end
 
   it "Check rna complement of thymine is adenine" do
-    skip
-    expect('A').must_equal Complement.of_dna('T')
+    expect rna_transcription('T').must_equal ('A')
   end
 
   it "Check rna complement of adenine is uracil" do
-    skip
-    expect('U').must_equal Complement.of_dna('A')
+    expect rna_transcription('U').must_equal ('A')
   end
 
   it "Check rna complement" do
-    skip
-    expect('UGCACCAGAAUU').must_equal Complement.of_dna('ACGTGGTCTTAA')
+    expect rna_transcription('UGCACCAGAAUU').must_equal ('ACGTGGTCTTAA')
   end
 
   it "Check dna complement of cytosine is guanine" do
-    skip
-    expect('G').must_equal Complement.of_rna('C')
+    expect rna_transcription('G').must_equal ('C')
   end
 
   it "Check dna complement of guanine is cytosine" do
-    skip
-    expect('C').must_equal Complement.of_rna('G')
+    expect rna_transcription('C').must_equal('G')
   end
 
   it "Check dna complement of uracil is adenine" do
-    skip
-    expect('A').must_equal Complement.of_rna('U')
+    expect rna_transcription('A').must_equal('U')
   end
 
   it "Check dna complement of adenine is thymine" do
-    skip
-    expect('T').must_equal Complement.of_rna('A')
+    expect rna_transcription('T').must_equal ('A')
   end
 
   it "Check dna complement" do
-    skip
-    expect('ACTTGGGCTGTAC').must_equal Complement.of_rna('UGAACCCGACAUG')
+    expect rna_transcription('ACTTGGGCTGTAC').must_equal ('UGAACCCGACAUG')
   end
 
   it "Check dna raises argument error" do
@@ -62,8 +54,7 @@ describe "RNA Complement Test" do
   end
 
   it "Check rna raises argument error on completely invalid input" do
-    skip
-    expect(proc { Complement.of_rna('XXX') }).must_raise ArgumentError
+    expect rna_transcription('XXX').must_raise ArgumentError
   end
 
   it "Check dna raises argument error on completely invalid input" do
